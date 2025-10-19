@@ -1,7 +1,7 @@
 BasedOnStyle: LLVM
 AccessModifierOffset: -2
 AlignAfterOpenBracket: DontAlign
-AlignOperands: true
+AlignOperands: DontAlign
 AllowAllArgumentsOnNextLine: true
 AllowShortBlocksOnASingleLine: Always
 AllowShortCaseLabelsOnASingleLine: false
@@ -33,13 +33,13 @@ BreakConstructorInitializers: BeforeColon
 BreakInheritanceList: BeforeColon
 ColumnLimit: 0
 CompactNamespaces: false
-ContinuationIndentWidth: 2
+ContinuationIndentWidth: 4
 IndentCaseLabels: false
 IndentPPDirectives: None
-IndentWidth: 2
+IndentWidth: 4
 KeepEmptyLinesAtTheStartOfBlocks: false
 MaxEmptyLinesToKeep: 2
-NamespaceIndentation: None
+NamespaceIndentation: All
 PointerAlignment: Right
 ReflowComments: false
 SpaceAfterCStyleCast: false
