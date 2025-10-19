@@ -45,20 +45,64 @@ namespace rrobot
          */
         virtual void set_state_handler(std::shared_ptr<RrStateMaintainer>) = 0;
 
-        /**
-         * @fn callback
-         * @brief method that will be called when messages are recieved
-         * @param event message.
-         * 
-         * Void should be cast to the specific message that is getting used. This called
-         * be done by using the callback to cast the message to the appropriate type
-         * then use a further internal private method to perform the processing.
-         */
-        virtual void callback(std::shared_ptr<void>) = 0;
-
       protected:
         RrSubscriber() {}
     };
+
+
+    /**
+     * @class RrSubscriberGps
+     * 
+     * Handles subscriptions for GPS.
+     */
+    class RrSubscriberGps : public RrSubscriber
+    {
+      public:
+        /**
+             * @fn callback
+             * @brief callback for subscriptions to GPS service.
+             */
+        virtual void callback(const sensor_msgs::msg::NavSatFix::SharedPtr) = 0;
+    };
+
+    /**
+     * @class RrSubscriberJoy
+     */
+    class RrSubscriberJoy : public RrSubscriber
+    {
+      public:
+        virtual void callback(const sensor_msgs::msg::Joy::SharedPtr) = 0;
+    };
+
+    /**
+     * @class RrSubscriberBattState
+     * 
+     * subscriber for battery state
+     */
+    class RrSubscriberBattState : public RrSubscriber
+    {
+      public:
+        virtual void callback(const sensor_msgs::msg::BatteryState::SharedPtr) = 0;
+    };
+
+    class RrImageSubscriber : public RrSubscriber
+    {
+      public:
+        virtual void callback(const sensor_msgs::msg::Image::SharedPtr) = 0;
+    };
+
+    class RrImuSubscriber : public RrSubscriber
+    {
+      public:
+        virtual void callback(const sensor_msgs::msg::Imu::SharedPtr) = 0;
+    };
+
+    class RrRangesSubscriber : public RrSubscriber
+    {
+      public:
+        virtual void callback(std::shared_ptr<std::vector<const sensor_msgs::msg::Range::SharedPtr>>) = 0;
+    };
+
 } // namespace rrobot
 
 #endif
