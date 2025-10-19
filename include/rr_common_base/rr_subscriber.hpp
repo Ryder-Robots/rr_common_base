@@ -15,7 +15,7 @@ namespace rrobot
     class RrSubscriber
     {
       public:
-        virtual ~RrSubscriber() = 0;
+        virtual ~RrSubscriber() = default;
 
         /**
          * @fn get_topic_param

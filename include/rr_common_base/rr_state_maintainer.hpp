@@ -32,7 +32,7 @@ namespace rrobot
     class RrStateMaintainer
     {
       public:
-        virtual ~RrStateMaintainer() = 0;
+        virtual ~RrStateMaintainer() = default;
         /**
          * @fn set_gps has_gps get_gps
          * @brief setters and getters relating to gps

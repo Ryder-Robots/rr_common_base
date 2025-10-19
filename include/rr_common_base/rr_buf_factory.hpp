@@ -26,7 +26,7 @@ namespace rrobot
          * @fn ~RrBufFactory
          * @brief perform any clean up operations.
          */
-        virtual ~RrBufFactory() = 0;
+        virtual ~RrBufFactory() = default;
 
       protected:
         RrBufFactory() {}
