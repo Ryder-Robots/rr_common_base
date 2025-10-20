@@ -4,7 +4,6 @@
 #include <rclcpp/logger.hpp>
 #include "rr_interfaces/msg/buffer_response.hpp"
 #include "rr_interfaces/msg/feature_set.hpp"
-#include <list>
 #include <mutex>
 #include <shared_mutex>
 
@@ -77,9 +76,9 @@ namespace rrobot
          * @fn set_imu has_imu get_imu
          * @brief setters and getters relating to imu (video stream)
          */
-        virtual void set_ranges(const std::list<sensor_msgs::msg::Range>) = 0;
+        virtual void set_ranges(const std::vector<sensor_msgs::msg::Range>) = 0;
         virtual bool has_ranges() = 0;
-        virtual const std::list<sensor_msgs::msg::Range> get_ranges() = 0;
+        virtual const std::vector<sensor_msgs::msg::Range> get_ranges() = 0;
 
         virtual const rr_interfaces::msg::FeatureSet get_feature_set() = 0;
 
