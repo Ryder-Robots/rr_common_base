@@ -73,10 +73,19 @@ namespace rrobot
         virtual const sensor_msgs::msg::Imu get_imu() = 0;
 
         /**
-         * @fn set_imu has_imu get_imu
-         * @brief setters and getters relating to imu (video stream)
+         * @fn set_range, has_ranges, get_ranges
+         * @brief setters and getters relating ranges.
+         * 
+         * Ranges returns an array relating to all input ranges, where ranges are assigned to a vector based upon their 
+         * frame_id:
+         * 
+         * For messages that are on topics:
+         * 
+         * /ultrasonic/left get_ranges()[0] will contain the value
+         * /ultrasonic/center get_ranges[1] will contain the value
+         * /ultrasonic/right get_ranges[2] will contain the value
          */
-        virtual void set_ranges(const std::vector<sensor_msgs::msg::Range>) = 0;
+        virtual void set_range(const sensor_msgs::msg::Range::SharedPtr) = 0;
         virtual bool has_ranges() = 0;
         virtual const std::vector<sensor_msgs::msg::Range> get_ranges() = 0;
 

@@ -100,7 +100,7 @@ namespace rrobot
     class RrRangesSubscriber : public RrSubscriber
     {
       public:
-        virtual void callback(std::shared_ptr<std::vector<const sensor_msgs::msg::Range::SharedPtr>>) = 0;
+        virtual void callback(const sensor_msgs::msg::Range::SharedPtr) = 0;
     };
 
 } // namespace rrobot
