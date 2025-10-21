@@ -85,7 +85,7 @@ namespace rrobot
          * /ultrasonic/center get_ranges[1] will contain the value
          * /ultrasonic/right get_ranges[2] will contain the value
          */
-        virtual void set_range(const sensor_msgs::msg::Range::SharedPtr) = 0;
+        virtual void set_range(const sensor_msgs::msg::Range) = 0;
         virtual bool has_ranges() = 0;
         virtual const std::vector<sensor_msgs::msg::Range> get_ranges() = 0;
 
