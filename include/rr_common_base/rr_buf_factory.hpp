@@ -28,6 +28,20 @@ namespace rrobot
          */
         virtual ~RrBufFactory() = default;
 
+        /**
+         * @fn sub_img_group
+         * @brief returns subscription group for image collection.
+         */
+        virtual rclcpp::CallbackGroup::SharedPtr sub_img_group() = 0;
+
+        /**
+         * @fn sub_sensor_group
+         * @brief returns subscription group for sensors.
+         * 
+         * Sensors are on the same callback group, this means they run in the same thread.
+         */
+        virtual rclcpp::CallbackGroup::SharedPtr sub_sensor_group() = 0;
+
       protected:
         RrBufFactory() {}
     };
