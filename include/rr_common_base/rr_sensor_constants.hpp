@@ -32,7 +32,13 @@ namespace rr_constants
     const std::string TOPIC_ULTRA_SONIC_CENTER = "/ultrasonic_front_center"; // sensor_msgs::msg::Range
     const std::string TOPIC_ULTRA_SONIC_RIGHT = "/ultrasonic_front_right";   // sensor_msgs::msg::Range
 
-    // frame_id for GPS
+    // topic that is used for verifying heartbeats for various services.
+    const std::string TOPIC_HEARTBEAT = "/rr/heartbeat";
+
+    // frame_ids
+    // frame id for buffer service
+    const std::string LINK_BUFF_SVR = "buf_svc";
+
     // Used in multi-sensor robot setups where GPS provides absolute position data.
     const std::string LINK_GPS = "gps_link";
     // Used when the GPS antenna is rigidly offset from base_link.
@@ -42,7 +48,7 @@ namespace rr_constants
     const std::string LINK_GPS_BASE_LINK = "base_link";
 
     // no offical frame ID for joysticks, so matching the controller type
-    const std::string LINK_JOY_PS4 = "joy-ps4";
+    const std::string LINK_JOY_PS4 = "joy_ps4";
 
     const std::string LINK_BATT_STATE = "power_supply";
 

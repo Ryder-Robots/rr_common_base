@@ -13,6 +13,9 @@ namespace rrobot
          * @fn initialize
          * @brief initialize each subscriber, injects logger and state_manager in each
          * subscriber, and links them to ctl.
+         * 
+         * @param ctl controlling node
+         * @param state_manager common state managed by calling node
          */
         virtual void initialize(rclcpp::Node::SharedPtr ctl, std::shared_ptr<RrStateMaintainer> state_manager) = 0;
 
