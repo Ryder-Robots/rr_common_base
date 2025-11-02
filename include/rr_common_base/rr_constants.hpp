@@ -86,7 +86,7 @@ namespace rr_constants
     const size_t JOY_AXES_TRIGGERRIGHT = 5;
 
     // Link Ids for heartbeat frames
-    std::string LINK_HB_JOY = "joy_hb_link";
+    std::string LINK_HB = "heartbeat_link";
 } // namespace rr_constants
 
 #endif // RR_BUFFER_CONSTANTS_HPP
