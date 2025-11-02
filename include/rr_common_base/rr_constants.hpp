@@ -52,23 +52,41 @@ namespace rr_constants
    * 
    * Buttons which are the various button values on the game controller, these are generally boolean values
    * that can be represented as 1 or 0. Not all buttons are mapped out below.
+   * 
+   * Note that mapping are referenced from https://docs.ros.org/en/ros2_packages/jazzy/api/joy/index.html
    */
 
-    // Left stick X and Y axis
-    const size_t CTRL_AXIS_XL = 0;
-    const size_t CTRL_AXIS_YL = 1;
+    const size_t JOY_A_CROSS = 0;
+    const size_t JOY_B_CIRCLE = 1;
+    const size_t JOY_X_SQUARE = 2;
+    const size_t JOY_Y_TRIANGLE = 3;
+    const size_t JOY_BACK_SELECT = 4;
+    const size_t JOY_GUIDE = 5;
+    const size_t JOY_START = 6;
+    const size_t JOY_LEFTSTICK = 7;
+    const size_t JOY_RIGHTSTICK = 8;
+    const size_t JOY_LEFTSHOULDER = 9;
+    const size_t JOY_RIGHTSHOULDER = 10;
+    const size_t JOY_DPAD_UP = 11;
+    const size_t JOY_DPAD_DOWN = 12;
+    const size_t JOY_DPAD_LEFT = 13;
+    const size_t JOY_DPAD_RIGHT = 14;
+    const size_t JOY_MISC1 = 15;   // Depends on the controller manufacturer, but is usually at a similar location on the controller as back/start
+    const size_t JOY_PADDLE1 = 16; //Upper left, facing the back of the controller if present
+    const size_t JOY_PADDLE2 = 17; // Upper right, facing the back of the controller if present
+    const size_t JOY_PADDLE3 = 18; // Lower left, facing the back of the controller if present
+    const size_t JOY_PADDLE4 = 19; // Lower right, facing the back of the controller if present
+    const size_t JOY_TOUCHPAD = 20; // If present. Button status only
 
-    // Right stick X and Y axis
-    const size_t CTRL_AXIS_XR = 2;
-    const size_t CTRL_AXIS_YR= 2;
+    const size_t JOY_AXES_LEFTX = 0;
+    const size_t JOY_AXES_LEFTY = 1;
+    const size_t JOY_AXES_RIGHTX = 2;
+    const size_t JOY_AXES_RIGHTY = 3;
+    const size_t JOY_AXES_TRIGGERLEFT = 4;
+    const size_t JOY_AXES_TRIGGERRIGHT = 5;
 
-    // buttons
-    const size_t CTRL_X_BUTTON = 0;
-    const size_t CTRL_SCROLL_DOWN = 11;
-    const size_t CTRL_SCROLL_UP = 12;
-    const size_t CTRL_SCROLL_LEFT = 13;
-    const size_t CTRL_SCROLL_RIGHT = 14;
-
+    // Link Ids for heartbeat frames
+    std::string LINK_HB_JOY = "joy_hb_link";
 } // namespace rr_constants
 
 #endif // RR_BUFFER_CONSTANTS_HPP
