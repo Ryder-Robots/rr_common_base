@@ -63,6 +63,10 @@ namespace rr_constants
     const std::string LINK_ULTRA_SONIC_LEFT = "ultrasonic_front_left_link";
     const std::string LINK_ULTRA_SONIC_CENTER = "ultrasonic_front_center_link";
     const std::string LINK_ULTRA_SONIC_RIGHT = "ultrasonic_front_center_link";
-} // namespace rrobot
+
+    // Link Ids for heartbeat frames
+    const std::string LINK_HB = "heartbeat_link";
+
+} // namespace rr_constants
 
 #endif
