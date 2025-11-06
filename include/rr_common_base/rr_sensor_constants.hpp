@@ -67,6 +67,9 @@ namespace rr_constants
     // Link Ids for heartbeat frames
     const std::string LINK_HB = "heartbeat_link";
 
+    // Link for state
+    const std::string LINK_STATE = "state_link";
+
 } // namespace rr_constants
 
 #endif
