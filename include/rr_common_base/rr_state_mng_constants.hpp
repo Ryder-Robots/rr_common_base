@@ -5,7 +5,7 @@
 /**
  * The following constants are used for communication with the state manager service.
  */
-namespace rr_constants
+namespace rr_constants_state_mgr
 {
     // define state battery request
     const std::string STATE_BAT_REQ = "state_bat_req";
