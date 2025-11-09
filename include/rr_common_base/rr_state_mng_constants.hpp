@@ -27,9 +27,7 @@ namespace rr_constants_state_mgr
 
     // define state range request
     const std::string STATE_RNG_REQ = "state_rng_req";
-
-    // define state response
-    const std::string STATE_RESPONSE = "state_response";
+    
 } // namespace rr_constants
 
 #endif
