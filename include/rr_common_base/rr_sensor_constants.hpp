@@ -35,6 +35,9 @@ namespace rr_constants
     // topic that is used for verifying heartbeats for various services.
     const std::string TOPIC_HEARTBEAT = "/rr/heartbeat";
 
+    // sends current state this topic.
+    const std::string TOPIC_STATE_FRAME = "/rr/state_frame";
+
     // frame_ids
     // frame id for buffer service
     const std::string LINK_BUFF_SVR = "buf_svc";
