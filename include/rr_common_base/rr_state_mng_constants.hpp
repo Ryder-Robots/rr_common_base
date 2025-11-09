@@ -22,6 +22,9 @@ namespace rr_constants_state_mgr
     // define state joystick request
     const std::string STATE_JOY_REQ = "state_joy_req";
 
+    // define navigation request, this is an automous request
+    const std::string STATE_NAV_REQ = "state_nav_req";
+
     // define state range request
     const std::string STATE_RNG_REQ = "state_rng_req";
 
