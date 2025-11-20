@@ -2,7 +2,6 @@
 #define RR_BUFFER_CONSTANTS_HPP
 
 #include "rr_sensor_constants.hpp"
-#include "rr_state_maintainer.hpp"
 
 /**
  * Constants that are provided to Ryder Robot artefacts.
