@@ -17,3 +17,40 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+
+#ifndef RR_NODE_PLUGIN_IFACE_HPP
+#define RR_NODE_PLUGIN_IFACE_HPP
+
+#include <functional>
+#include <memory>
+
+
+namespace rrobots
+{
+    namespace interfaces
+    {
+        template<typename MessageT>
+        class InboundComT : public rrobots::interfaces::InboundComT<MessageT>
+        {
+          public:
+            using MessageType = MessageT;
+            using CallbackType = std::function<void(const MessageT &)>;
+
+            virtual ~InboundComT() = default;
+
+            // Method to configure the inbound topic or source
+            virtual void on_activate(const std::string &topic_name, size_t queue_size) = 0;
+
+            // Registers the node subscription callback to be called on inbound messages
+            virtual void set_callback(CallbackType cb) = 0;
+
+            // Starts listening or subscribing to inbound data source
+            virtual void start() = 0;
+
+            // Stops listening or unsubscribing
+            virtual void stop() = 0;
+        };
+    } // namespace plugins
+} // namespace rrobots
+
+#endif // RR_NODE_PLUGIN_IFACE_HPP
