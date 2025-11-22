@@ -72,7 +72,7 @@ namespace rrobots
 
             /**
              * @fn on_cleanup
-             * @brief performs up cleanup
+             * @brief performs cleanup
              */
             virtual LNI::CallbackReturn on_cleanup(const lc::State &state) = 0;
         };
