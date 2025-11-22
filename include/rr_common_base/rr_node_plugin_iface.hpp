@@ -21,16 +21,25 @@
 #ifndef RR_NODE_PLUGIN_IFACE_HPP
 #define RR_NODE_PLUGIN_IFACE_HPP
 
+#include "lifecycle_msgs/msg/state.hpp"
+#include "rclcpp/rclcpp.hpp"
+#include "rclcpp_lifecycle/lifecycle_node.hpp"
 #include <functional>
 #include <memory>
 
+namespace lc = rclcpp_lifecycle;
+using LNI = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface;
 
 namespace rrobots
 {
     namespace interfaces
     {
+        /**
+         * @class InboundComT
+         * @brief interface for plugin subscription callback type.
+         */
         template<typename MessageT>
-        class InboundComT : public rrobots::interfaces::InboundComT<MessageT>
+        class InboundComT
         {
           public:
             using MessageType = MessageT;
@@ -38,19 +47,36 @@ namespace rrobots
 
             virtual ~InboundComT() = default;
 
-            // Method to configure the inbound topic or source
-            virtual void on_activate(const std::string &topic_name, size_t queue_size) = 0;
+            /**
+             * @fn configure
+             * @brief creates callback within plugin.
+             * 
+             * expected to be called during the configure section of a lifecycle node.
+             * 
+             * @param state nodes previous state when this method is called
+             * @param callback to execute on subscription
+             */
+            virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb) = 0;
 
-            // Registers the node subscription callback to be called on inbound messages
-            virtual void set_callback(CallbackType cb) = 0;
+            /**
+             * @fn on_activate
+             * @brief activates the subscription. callback will now be active
+             */
+            virtual LNI::CallbackReturn on_activate(const lc::State &state) = 0;
 
-            // Starts listening or subscribing to inbound data source
-            virtual void start() = 0;
+            /**
+             * @fn on_deactivate
+             * @brief deactivates the subscriber.
+             */
+            virtual LNI::CallbackReturn on_deactivate(const lc::State &state) = 0;
 
-            // Stops listening or unsubscribing
-            virtual void stop() = 0;
+            /**
+             * @fn on_cleanup
+             * @brief performs up cleanup
+             */
+            virtual LNI::CallbackReturn on_cleanup(const lc::State &state) = 0;
         };
-    } // namespace plugins
+    } // namespace interfaces
 } // namespace rrobots
 
 #endif // RR_NODE_PLUGIN_IFACE_HPP
