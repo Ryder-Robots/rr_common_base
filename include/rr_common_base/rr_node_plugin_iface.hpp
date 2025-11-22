@@ -55,26 +55,33 @@ namespace rrobots
              * 
              * @param state nodes previous state when this method is called
              * @param callback to execute on subscription
+             * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb) = 0;
+            virtual [[nodiscard]] LNI::CallbackReturn configure(const lc::State &state, CallbackType cb) = 0;
 
             /**
              * @fn on_activate
              * @brief activates the subscription. callback will now be active
+             * @param state nodes previous state when this method is called
+             * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn on_activate(const lc::State &state) = 0;
+            virtual [[nodiscard]] LNI::CallbackReturn on_activate(const lc::State &state) = 0;
 
             /**
              * @fn on_deactivate
              * @brief deactivates the subscriber.
+             * @param state nodes previous state when this method is called
+             * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn on_deactivate(const lc::State &state) = 0;
+            virtual [[nodiscard]] LNI::CallbackReturn on_deactivate(const lc::State &state) = 0;
 
             /**
              * @fn on_cleanup
              * @brief performs cleanup
+             * @param state nodes previous state when this method is called
+             * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn on_cleanup(const lc::State &state) = 0;
+            virtual [[nodiscard]] LNI::CallbackReturn on_cleanup(const lc::State &state) = 0;
         };
     } // namespace interfaces
 } // namespace rrobots
