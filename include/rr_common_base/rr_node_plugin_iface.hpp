@@ -59,7 +59,7 @@ namespace rrobots
              * @param callback to execute on subscription
              * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb, LNB node) = 0;
+            virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb, LNB::SharedPtr node) = 0;
 
             /**
              * @fn on_activate
