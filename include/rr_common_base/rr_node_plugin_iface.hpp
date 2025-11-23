@@ -56,7 +56,8 @@ namespace rrobots
              * expected to be called during the configure section of a lifecycle node.
              * 
              * @param state nodes previous state when this method is called
-             * @param callback to execute on subscription
+             * @param callback to execute on subscription.
+             * @param node, parent that owns subscription.
              * @return CallbackReturn returns status result of method.
              */
             virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb, LNB::SharedPtr node) = 0;
