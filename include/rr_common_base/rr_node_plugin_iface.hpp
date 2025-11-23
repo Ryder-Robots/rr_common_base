@@ -24,11 +24,13 @@
 #include "lifecycle_msgs/msg/state.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_lifecycle/lifecycle_node.hpp"
+#include "rclcpp/node_interfaces/node_base_interface.hpp"
 #include <functional>
 #include <memory>
 
 namespace lc = rclcpp_lifecycle;
 using LNI = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface;
+using LNB = rclcpp::node_interfaces::NodeBaseInterface;
 
 namespace rrobots
 {
@@ -57,7 +59,7 @@ namespace rrobots
              * @param callback to execute on subscription
              * @return CallbackReturn returns status result of method.
              */
-            virtual [[nodiscard]] LNI::CallbackReturn configure(const lc::State &state, CallbackType cb) = 0;
+            virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb, LNB node) = 0;
 
             /**
              * @fn on_activate
@@ -65,7 +67,7 @@ namespace rrobots
              * @param state nodes previous state when this method is called
              * @return CallbackReturn returns status result of method.
              */
-            virtual [[nodiscard]] LNI::CallbackReturn on_activate(const lc::State &state) = 0;
+            virtual LNI::CallbackReturn on_activate(const lc::State &state) = 0;
 
             /**
              * @fn on_deactivate
@@ -73,7 +75,7 @@ namespace rrobots
              * @param state nodes previous state when this method is called
              * @return CallbackReturn returns status result of method.
              */
-            virtual [[nodiscard]] LNI::CallbackReturn on_deactivate(const lc::State &state) = 0;
+            virtual LNI::CallbackReturn on_deactivate(const lc::State &state) = 0;
 
             /**
              * @fn on_cleanup
@@ -81,7 +83,7 @@ namespace rrobots
              * @param state nodes previous state when this method is called
              * @return CallbackReturn returns status result of method.
              */
-            virtual [[nodiscard]] LNI::CallbackReturn on_cleanup(const lc::State &state) = 0;
+            virtual LNI::CallbackReturn on_cleanup(const lc::State &state) = 0;
         };
     } // namespace interfaces
 } // namespace rrobots
