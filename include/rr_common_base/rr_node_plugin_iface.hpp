@@ -21,6 +21,7 @@
 #ifndef RR_NODE_PLUGIN_IFACE_HPP
 #define RR_NODE_PLUGIN_IFACE_HPP
 
+#include "rclcpp_lifecycle/lifecycle_node.hpp"
 #include "lifecycle_msgs/msg/state.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_lifecycle/lifecycle_node.hpp"
@@ -60,7 +61,7 @@ namespace rrobots
              * @param node, parent that owns subscription.
              * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb, LNB::SharedPtr node) = 0;
+            virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb, std::shared_ptr<rclcpp::Node> node) = 0;
 
             /**
              * @fn on_activate
