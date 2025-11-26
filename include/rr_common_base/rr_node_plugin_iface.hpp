@@ -61,7 +61,7 @@ namespace rrobots
              * @param node, parent that owns subscription.
              * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb, std::shared_ptr<rclcpp_lifecycle::LifecycleNode> node) = 0;
+            virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb, rclcpp_lifecycle::LifecycleNode::SharedPtr node) = 0;
 
             /**
              * @fn on_activate
