@@ -21,7 +21,7 @@
 #pragma once
 
 #include "rr_common_base/rr_service_plugin_iface.hpp"
-#include "rr_interfaces/srv/monitor_imu_action.hpp"
+#include "rr_interfaces/action/monitor_imu_action.hpp"
 
 namespace rrobots
 {
@@ -35,7 +35,7 @@ namespace rrobots
          * flight controllers or embedded sensors. Uses header.frame_id for
          * link targeting and uuid for request correlation.
          */
-        class RRImuServicePluginIface : public RRServicePluginIface<rr_interfaces::srv::MonitorImuAction>
+        class RRImuServicePluginIface : public RRServicePluginIface<rr_interfaces::action::MonitorImuAction>
         {
         };
     } // namespace interfaces

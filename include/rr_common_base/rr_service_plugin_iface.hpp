@@ -60,7 +60,7 @@ namespace rrobots
              * should be used.
              * @return state after on_srv_configure has completed.
              */
-            virtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn on_srv_configure(const rclcpp_lifecycle::State &state) = 0;
+            virtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn on_srv_configure(const rclcpp_lifecycle::State &state, rclcpp_lifecycle::LifecycleNode::SharedPtr node) = 0;
 
             /**
              * @fn handle_goal
