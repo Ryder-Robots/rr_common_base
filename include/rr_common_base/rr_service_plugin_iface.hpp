@@ -92,7 +92,7 @@ namespace rrobots
              * @param state nodes previous state when this method is called
              * @return CallbackReturn returns status result of method.
              */
-            virtual CallbackReturn on_activate(const State &state) = 0;
+            virtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn on_activate(const rclcpp_lifecycle::State &state) = 0;
 
             /**
              * @fn on_deactivate
@@ -100,7 +100,7 @@ namespace rrobots
              * @param state nodes previous state when this method is called
              * @return CallbackReturn returns status result of method.
              */
-            virtual CallbackReturn on_deactivate(const State &state) = 0;
+            virtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn on_deactivate(const rclcpp_lifecycle::State &state) = 0;
         };
     } // namespace interfaces
 } // namespace rrobots
