@@ -85,6 +85,22 @@ namespace rrobots
              * @param goal_handle reference to goal object.
              */
             virtual void handle_accepted(const std::shared_ptr<GoalHandle> goal_handle) = 0;
+
+            /**
+             * @fn on_activate
+             * @brief activates the subscription. callback will now be active
+             * @param state nodes previous state when this method is called
+             * @return CallbackReturn returns status result of method.
+             */
+            virtual CallbackReturn on_activate(const State &state) = 0;
+
+            /**
+             * @fn on_deactivate
+             * @brief deactivates the subscriber.
+             * @param state nodes previous state when this method is called
+             * @return CallbackReturn returns status result of method.
+             */
+            virtual CallbackReturn on_deactivate(const State &state) = 0;
         };
     } // namespace interfaces
 } // namespace rrobots
