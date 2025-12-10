@@ -22,7 +22,6 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
-#include "rclcpp_components/register_node_macro.hpp"
 #include "rclcpp_lifecycle/lifecycle_node.hpp"
 #include <memory>
 
@@ -54,10 +53,11 @@ namespace rrobots
              * @fn configure
              * @brief last call from concrete implementations configure() method.
              * 
-             * Performs any initilization of plugin that is necessary.
+             * Performs any initialization of plugin that is necessary.
              * 
              * @param state - current life cycle transition state, if this state has changed prior to calling on_srv_configure method then the changed state
              * should be used.
+             * @param node - actio node 
              * @return state after on_srv_configure has completed.
              */
             virtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn on_srv_configure(const rclcpp_lifecycle::State &state, rclcpp_lifecycle::LifecycleNode::SharedPtr node) = 0;
@@ -69,7 +69,7 @@ namespace rrobots
              * @param goal Raw goal
              * @return on success ACCEPT_AND_EXECUTE, any other return type should be considered erroneous.
              */
-            virtual rclcpp_action::GoalResponse handle_goal(const rclcpp_action::GoalUUID &uuid, std::shared_ptr<const ActionT::Goal> goal) = 0;
+            virtual rclcpp_action::GoalResponse handle_goal(const rclcpp_action::GoalUUID &uuid, std::shared_ptr<const typename ActionT::Goal> goal) = 0;
 
             /**
              * @fn handle_cancel

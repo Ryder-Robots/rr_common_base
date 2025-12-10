@@ -18,20 +18,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef RR_NODE_PLUGIN_IFACE_HPP
-#define RR_NODE_PLUGIN_IFACE_HPP
+#pragma once
 
-#include "rclcpp_lifecycle/lifecycle_node.hpp"
-#include "lifecycle_msgs/msg/state.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_lifecycle/lifecycle_node.hpp"
-#include "rclcpp/node_interfaces/node_base_interface.hpp"
 #include <functional>
 #include <memory>
-
-namespace lc = rclcpp_lifecycle;
-using LNI = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface;
-using LNB = rclcpp::node_interfaces::NodeBaseInterface;
 
 namespace rrobots
 {
@@ -40,6 +32,7 @@ namespace rrobots
         /**
          * @class InboundComT
          * @brief interface for plugin subscription callback type.
+         * @tparam MessageT ROS2 message type for subscription
          */
         template<typename MessageT>
         class InboundComT
@@ -47,6 +40,7 @@ namespace rrobots
           public:
             using MessageType = MessageT;
             using CallbackType = std::function<void(const MessageT &)>;
+            using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
 
             virtual ~InboundComT() = default;
 
@@ -56,12 +50,12 @@ namespace rrobots
              * 
              * expected to be called during the configure section of a lifecycle node.
              * 
-             * @param state nodes previous state when this method is called
-             * @param callback to execute on subscription.
-             * @param node, parent that owns subscription.
+             * @param state nodes previous state when this method is called.
+             * @param cb callback that will be executed.
+             * @param node parent that owns subscription.
              * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn configure(const lc::State &state, CallbackType cb, rclcpp_lifecycle::LifecycleNode::SharedPtr node) = 0;
+            virtual CallbackReturn configure(const rclcpp_lifecycle::State &state, CallbackType cb, rclcpp_lifecycle::LifecycleNode::SharedPtr node) = 0;
 
             /**
              * @fn on_activate
@@ -69,7 +63,7 @@ namespace rrobots
              * @param state nodes previous state when this method is called
              * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn on_activate(const lc::State &state) = 0;
+            virtual CallbackReturn on_activate(const rclcpp_lifecycle::State &state) = 0;
 
             /**
              * @fn on_deactivate
@@ -77,7 +71,7 @@ namespace rrobots
              * @param state nodes previous state when this method is called
              * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn on_deactivate(const lc::State &state) = 0;
+            virtual CallbackReturn on_deactivate(const rclcpp_lifecycle::State &state) = 0;
 
             /**
              * @fn on_cleanup
@@ -85,9 +79,7 @@ namespace rrobots
              * @param state nodes previous state when this method is called
              * @return CallbackReturn returns status result of method.
              */
-            virtual LNI::CallbackReturn on_cleanup(const lc::State &state) = 0;
+            virtual CallbackReturn on_cleanup(const rclcpp_lifecycle::State &state) = 0;
         };
     } // namespace interfaces
 } // namespace rrobots
-
-#endif // RR_NODE_PLUGIN_IFACE_HPP
