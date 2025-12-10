@@ -22,6 +22,7 @@
 #ifndef RR_BUFFER_CONSTANTS_HPP
 #define RR_BUFFER_CONSTANTS_HPP
 
+#include <cstdint>
 #include "rr_sensor_constants.hpp"
 
 /**
@@ -92,11 +93,11 @@ namespace rr_constants
     const size_t JOY_DPAD_DOWN = 12;
     const size_t JOY_DPAD_LEFT = 13;
     const size_t JOY_DPAD_RIGHT = 14;
-    const size_t JOY_MISC1 = 15;   // Depends on the controller manufacturer, but is usually at a similar location on the controller as back/start
-    const size_t JOY_PADDLE1 = 16; //Upper left, facing the back of the controller if present
-    const size_t JOY_PADDLE2 = 17; // Upper right, facing the back of the controller if present
-    const size_t JOY_PADDLE3 = 18; // Lower left, facing the back of the controller if present
-    const size_t JOY_PADDLE4 = 19; // Lower right, facing the back of the controller if present
+    const size_t JOY_MISC1 = 15;    // Depends on the controller manufacturer, but is usually at a similar location on the controller as back/start
+    const size_t JOY_PADDLE1 = 16;  //Upper left, facing the back of the controller if present
+    const size_t JOY_PADDLE2 = 17;  // Upper right, facing the back of the controller if present
+    const size_t JOY_PADDLE3 = 18;  // Lower left, facing the back of the controller if present
+    const size_t JOY_PADDLE4 = 19;  // Lower right, facing the back of the controller if present
     const size_t JOY_TOUCHPAD = 20; // If present. Button status only
 
     const size_t JOY_AXES_LEFTX = 0;
@@ -105,6 +106,13 @@ namespace rr_constants
     const size_t JOY_AXES_RIGHTY = 3;
     const size_t JOY_AXES_TRIGGERLEFT = 4;
     const size_t JOY_AXES_TRIGGERRIGHT = 5;
+
+    const int8_t ACTION_STATE_PREPARING = 0;
+    const int8_t ACTION_STATE_SENT = 1;
+    const int8_t ACTION_STATE_PROCESSING = 2;
+    const int8_t ACTION_STATE_SUCCESS = 3;
+    const int8_t ACTION_STATE_FAIL= 4;
+    const int8_t ACTION_STATE_TIMEOUT = 5;
 
 } // namespace rr_constants
 
