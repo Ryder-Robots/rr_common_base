@@ -37,6 +37,7 @@ namespace rrobots
          */
         class RRImuServicePluginIface : public RRServicePluginIface<rr_interfaces::action::MonitorImuAction>
         {
+          protected:
             RRImuServicePluginIface() = default;
             ~RRImuServicePluginIface() = default;
         };
