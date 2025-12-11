@@ -25,7 +25,6 @@
 #include "rclcpp_lifecycle/lifecycle_node.hpp"
 #include <memory>
 
-
 // reference https://docs.ros.org/en/kilted/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html
 
 namespace rrobots
@@ -33,38 +32,38 @@ namespace rrobots
     namespace interfaces
     {
         /**
-         * @class RRServicePluginIface
-         * @brief plugin that abstracts service implementation for service nodes.
+         * @class RRActionPluginIface
+         * @brief plugin that abstracts implementation for action nodes.
          * 
-         * As part of the request/response lifecycle of Ryder Robot service node, sensor will have services
-         * that communicate with lower level drivers such as serial drivers. RRServicePluginIface abstracts
-         * plumbing of lower service, by allow the concrete service node implementation to either override 
+         * As part of the goal/feedback/result lifecycle of Ryder Robot action node, sensor will have action servers
+         * that communicate with lower level drivers such as serial drivers. RRActionPluginIface abstracts
+         * plumbing of the action server, by allowing the concrete action node implementation to either override 
          * the methods, or use them as part of its 'configure' method.
          */
         template<typename ActionT>
-        class RRServicePluginIface
+        class RRActionPluginIface
         {
           public:
             using GoalHandle = rclcpp_action::ServerGoalHandle<ActionT>;
 
-            virtual ~RRServicePluginIface() = default;
+            virtual ~RRActionPluginIface() = default;
 
             /**
-             * @fn configure
+             * @fn on_configure
              * @brief last call from concrete implementations configure() method.
              * 
              * Performs any initialization of plugin that is necessary.
              * 
-             * @param state - current life cycle transition state, if this state has changed prior to calling on_srv_configure method then the changed state
+             * @param state - current life cycle transition state, if this state has changed prior to calling on_configure method then the changed state
              * should be used.
-             * @param node - actio node 
-             * @return state after on_srv_configure has completed.
+             * @param node - action node 
+             * @return state after on_configure has completed.
              */
-            virtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn on_srv_configure(const rclcpp_lifecycle::State &state, rclcpp_lifecycle::LifecycleNode::SharedPtr node) = 0;
+            virtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn on_configure(const rclcpp_lifecycle::State &state, rclcpp_lifecycle::LifecycleNode::SharedPtr node) = 0;
 
             /**
              * @fn handle_goal
-             * @brief performs any checks to see if the goal can be accepted, this involves verifying that goal has completed data.
+             * @brief performs any checks to see if the goal can be accepted.
              * @param uuid UUID provided by ROS2 that represents this transaction.
              * @param goal Raw goal
              * @return on success ACCEPT_AND_EXECUTE, any other return type should be considered erroneous.
@@ -88,7 +87,7 @@ namespace rrobots
 
             /**
              * @fn on_activate
-             * @brief activates the subscription. callback will now be active
+             * @brief activates the action server. callback will now be active
              * @param state nodes previous state when this method is called
              * @return CallbackReturn returns status result of method.
              */
@@ -96,7 +95,7 @@ namespace rrobots
 
             /**
              * @fn on_deactivate
-             * @brief deactivates the subscriber.
+             * @brief deactivates the action server.
              * @param state nodes previous state when this method is called
              * @return CallbackReturn returns status result of method.
              */

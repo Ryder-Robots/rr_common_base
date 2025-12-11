@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "rr_common_base/rr_service_plugin_iface.hpp"
+#include "rr_common_base/rr_action_plugin_iface.hpp"
 #include "rr_interfaces/action/monitor_imu_action.hpp"
 
 namespace rrobots
@@ -31,15 +31,15 @@ namespace rrobots
          * @class RRImuServicePluginIface
          * @brief provides plugin interface for IMU events.
          * 
-         * Concrete implementations populate MonitorImuAction::Result.imu from
-         * flight controllers or embedded sensors. Uses header.frame_id for
-         * link targeting and uuid for request correlation.
+         * Strictly an interface for IMUs. Concrete classs are expected to use this 
+         * interface as their base, and implement virtual methods contained in
+         * RRActionPluginIface. The plugin may extend upon, but only methods that are
+         * in RRActionPluginIface will be used by nodes.
          */
-        class RRImuServicePluginIface : public RRServicePluginIface<rr_interfaces::action::MonitorImuAction>
+        class RRImuActionPluginIface : public RRActionPluginIface<rr_interfaces::action::MonitorImuAction>
         {
-          protected:
-            RRImuServicePluginIface() = default;
-            ~RRImuServicePluginIface() = default;
+          public:
+            virtual ~RRImuActionPluginIface() = default;
         };
     } // namespace interfaces
 } // namespace rrobots
