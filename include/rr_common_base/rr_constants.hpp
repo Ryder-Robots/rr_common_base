@@ -78,6 +78,7 @@ namespace rr_constants
    * Note that mapping are referenced from https://docs.ros.org/en/ros2_packages/jazzy/api/joy/index.html
    */
 
+   /**TODO: numeric constants should be converted to enums */
     const size_t JOY_A_CROSS = 0;
     const size_t JOY_B_CIRCLE = 1;
     const size_t JOY_X_SQUARE = 2;
@@ -113,6 +114,25 @@ namespace rr_constants
     const int8_t ACTION_STATE_SUCCESS = 3;
     const int8_t ACTION_STATE_FAIL= 4;
     const int8_t ACTION_STATE_TIMEOUT = 5;
+
+    /**
+     * operation codes.
+     */
+    typedef enum _rr_op_code
+    {
+        // monitoring sits in 1xx range
+        MSP_RAW_IMU = 102,
+        MSP_MOTOR = 104,
+        MSP_RAW_SENSORS = 105,
+
+        // Commands sit in the 2xx range.
+        MSP_SET_RAW_RC = 200,
+
+        // Errors included under here
+        BAD_REQUEST = 400,
+    } rr_op_code_t;
+
+
 
 } // namespace rr_constants
 
