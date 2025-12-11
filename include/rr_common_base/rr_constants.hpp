@@ -22,8 +22,8 @@
 #ifndef RR_BUFFER_CONSTANTS_HPP
 #define RR_BUFFER_CONSTANTS_HPP
 
-#include <cstdint>
 #include "rr_sensor_constants.hpp"
+#include <cstdint>
 
 /**
  * Constants that are provided to Ryder Robot artefacts.
@@ -78,7 +78,7 @@ namespace rr_constants
    * Note that mapping are referenced from https://docs.ros.org/en/ros2_packages/jazzy/api/joy/index.html
    */
 
-   /**TODO: numeric constants should be converted to enums */
+    /**TODO: numeric constants should be converted to enums */
     const size_t JOY_A_CROSS = 0;
     const size_t JOY_B_CIRCLE = 1;
     const size_t JOY_X_SQUARE = 2;
@@ -108,12 +108,15 @@ namespace rr_constants
     const size_t JOY_AXES_TRIGGERLEFT = 4;
     const size_t JOY_AXES_TRIGGERRIGHT = 5;
 
-    const int8_t ACTION_STATE_PREPARING = 0;
-    const int8_t ACTION_STATE_SENT = 1;
-    const int8_t ACTION_STATE_PROCESSING = 2;
-    const int8_t ACTION_STATE_SUCCESS = 3;
-    const int8_t ACTION_STATE_FAIL= 4;
-    const int8_t ACTION_STATE_TIMEOUT = 5;
+    typedef enum _rr_action_status_t : int8_t
+    {
+        ACTION_STATE_PREPARING = 0,
+        ACTION_STATE_SENT = 1,
+        ACTION_STATE_PROCESSING = 2,
+        ACTION_STATE_SUCCESS = 3,
+        ACTION_STATE_FAIL = 4,
+        ACTION_STATE_TIMEOUT = 5,
+    } rr_action_status_t;
 
     /**
      * operation codes.
@@ -131,7 +134,6 @@ namespace rr_constants
         // Errors included under here
         BAD_REQUEST = 400,
     } rr_op_code_t;
-
 
 
 } // namespace rr_constants
