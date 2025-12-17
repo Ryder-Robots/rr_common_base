@@ -100,6 +100,16 @@ namespace rrobots
              * @return CallbackReturn returns status result of method.
              */
             virtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn on_deactivate(const rclcpp_lifecycle::State &state) = 0;
+
+            /**
+             * @fn on_cleanup
+             * @brief optional method, that when implemented peforms clean up tasks.
+             * @param state nodes previous state when this method is called
+             * @return CallbackReturn returns status result of method.
+             */
+            virtual  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn on_cleanup(const rclcpp_lifecycle::State &state) {
+                return rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
+            } 
         };
     } // namespace interfaces
 } // namespace rrobots
