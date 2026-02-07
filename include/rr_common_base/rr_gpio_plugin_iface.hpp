@@ -210,7 +210,16 @@ public:
   virtual int set_isr_func_ex(unsigned gpio, unsigned edge, int timeout, gpio_isr_func_ex_t func, void* userdata) = 0;
 
   /**
-   * @fn gpio_write
+   * @fn clear_isr_func
+   * @brief clears the interrupt service routine for a specific pin.
+   * @param gpio GPIO pin number to clear ISR for.
+   * @return int returns 0 on success, negative values on failure.
+   * Note that this method is provided as a more direct way to clear ISRs on GPIO pins, and may be used within ISR callbacks.
+   */
+  virtual int clear_isr_func(unsigned gpio) = 0;
+
+  /**
+   * @fn digitial_write
    * @brief writes a value to a specific GPIO pin.
    * @param gpio GPIO pin number to write to.
    * @param level value to write to pin, 0 = LOW, 1 =
@@ -219,7 +228,7 @@ public:
    * Note that this method is provided as a more direct way to write to GPIO pins,
    * and may be used within ISR callbacks.
    */
-  virtual int gpio_write(unsigned gpio, unsigned level) = 0;
+  virtual int digitial_write(unsigned gpio, unsigned level) = 0;
 
   /**
    * @fn gpio_hardware_pwm
