@@ -219,7 +219,7 @@ public:
   virtual int clear_isr_func(unsigned gpio) = 0;
 
   /**
-   * @fn digitial_write
+   * @fn digital_write
    * @brief writes a value to a specific GPIO pin.
    * @param gpio GPIO pin number to write to.
    * @param level value to write to pin, 0 = LOW, 1 =
@@ -228,7 +228,7 @@ public:
    * Note that this method is provided as a more direct way to write to GPIO pins,
    * and may be used within ISR callbacks.
    */
-  virtual int digitial_write(unsigned gpio, unsigned level) = 0;
+  virtual int digital_write(unsigned gpio, unsigned level) = 0;
 
   /**
    * @fn digital_read
