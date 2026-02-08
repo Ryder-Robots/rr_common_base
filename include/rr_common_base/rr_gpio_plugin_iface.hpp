@@ -231,6 +231,14 @@ public:
   virtual int digitial_write(unsigned gpio, unsigned level) = 0;
 
   /**
+   * @fn digital_read
+   * @brief reads the value from a specific GPIO pin.
+   * @param gpio GPIO pin number to read from.
+   * @return int returns the value read from the pin, 0 = LOW, 1 = HIGH, negative values on failure.
+   */
+  virtual int digital_read(unsigned gpio) = 0;
+
+  /**
    * @fn gpio_hardware_pwm
    * @brief sets a hardware PWM signal on a specific GPIO pin.
    * @param pin GPIO pin number to set PWM on.
@@ -242,6 +250,14 @@ public:
    * callbacks. Not all GPIO pins may support hardware PWM.
    */
   virtual int gpio_hardware_pwm(unsigned pin, unsigned pwm_freq, unsigned pwm_duty_cycle) = 0;
+
+  /**
+   * @fn gpio_hardware_get_pwm
+   * @brief gets the current hardware PWM settings for a specific GPIO pin.
+   * @param pin GPIO pin number to get PWM settings for.
+   * @return int returns the current PWM frequency in Hz on success, negative values on failure.
+   */
+  virtual int gpio_hardware_get_pwm(unsigned pin) = 0;
 
   static constexpr int PI_OFF = 0;
   static constexpr int PI_ON = 1;
