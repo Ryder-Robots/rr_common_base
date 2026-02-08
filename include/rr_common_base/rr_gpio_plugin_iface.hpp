@@ -259,6 +259,13 @@ public:
    */
   virtual int gpio_hardware_get_pwm(unsigned pin) = 0;
 
+  /**
+   * @fn get_pwm_pins
+   * @brief gets a list of GPIO pins that support hardware PWM.
+   * @return std::list<unsigned> returns a list of GPIO pin numbers that support hardware
+   */
+  virtual std::list <unsigned> get_pwm_pins() const = 0;
+
   static constexpr int PI_OFF = 0;
   static constexpr int PI_ON = 1;
 
