@@ -288,6 +288,10 @@ public:
   static constexpr int PI_PUD_OFF = 0;
   static constexpr int PI_PUD_DOWN = 1;
   static constexpr int PI_PUD_UP = 2;
+
+  static constexpr int RISING_EDGE =  0;
+  static constexpr int FALLING_EDGE = 1;
+  static constexpr int EITHER_EDGE = 2;
 };
 }  // namespace interfaces
 }  // namespace rrobots
