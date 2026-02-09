@@ -59,6 +59,8 @@ namespace rr_constants
     // sends current state this topic.
     const std::string TOPIC_STATE_FRAME = "/rr/state_frame";
 
+    const std::string TOPIC_MOTOR = "/motors_command"; // rr_interfaces::msg::Motors
+
     // frame_ids
     // frame id for buffer service
     const std::string LINK_BUFF_SVR = "buf_svc";
@@ -93,6 +95,9 @@ namespace rr_constants
 
     // Link for state
     const std::string LINK_STATE = "state_link";
+
+    // Link for motor commands
+    const std::string LINK_MOTOR = "motor_link";
 
 } // namespace rr_constants
 
