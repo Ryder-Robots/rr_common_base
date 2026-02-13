@@ -266,32 +266,32 @@ public:
    */
   virtual std::list <unsigned> get_pwm_pins() const = 0;
 
-  static constexpr int PI_OFF = 0;
-  static constexpr int PI_ON = 1;
+  static constexpr int RRGPIO_OFF = 0;
+  static constexpr int RRGPIO_ON = 1;
 
-  static constexpr int PI_LOW = 0;
-  static constexpr int PI_HIGH = 1;
+  static constexpr int RRGPIO_LOW = 0;
+  static constexpr int RRGPIO_HIGH = 1;
 
   /* mode: 0-7 */
 
-  static constexpr int PI_INPUT = 0;
-  static constexpr int PI_OUTPUT = 1;
-  static constexpr int PI_ALT0 = 4;
-  static constexpr int PI_ALT1 = 5;
-  static constexpr int PI_ALT2 = 6;
-  static constexpr int PI_ALT3 = 7;
-  static constexpr int PI_ALT4 = 3;
-  static constexpr int PI_ALT5 = 2;
+  static constexpr int RRGPIO_INPUT = 0;
+  static constexpr int RRGPIO_OUTPUT = 1;
+  static constexpr int RRGPIO_ALT0 = 4;
+  static constexpr int RRGPIO_ALT1 = 5;
+  static constexpr int RRGPIO_ALT2 = 6;
+  static constexpr int RRGPIO_ALT3 = 7;
+  static constexpr int RRGPIO_ALT4 = 3;
+  static constexpr int RRGPIO_ALT5 = 2;
 
   /* pud: 0-2 */
 
-  static constexpr int PI_PUD_OFF = 0;
-  static constexpr int PI_PUD_DOWN = 1;
-  static constexpr int PI_PUD_UP = 2;
+  static constexpr int RRGPIO_PUD_OFF = 0;
+  static constexpr int RRGPIO_PUD_DOWN = 1;
+  static constexpr int RRGPIO_PUD_UP = 2;
 
-  static constexpr int RISING_EDGE =  0;
-  static constexpr int FALLING_EDGE = 1;
-  static constexpr int EITHER_EDGE = 2;
+  static constexpr int RRGPIO_RISING_EDGE =  0;
+  static constexpr int RRGPIO_FALLING_EDGE = 1;
+  static constexpr int RRGPIO_EITHER_EDGE = 2;
 };
 }  // namespace interfaces
 }  // namespace rrobots
